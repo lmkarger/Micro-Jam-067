@@ -6,6 +6,7 @@ public partial class GridEntity : Node2D
 	protected bool canMoveOnObstacle;
 	private TileMapLayer Obstacles;
 	private TileMapLayer Floor;
+	private Vector2I RealPos; 
 	private const int TileSize = 16;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready(){
@@ -37,6 +38,9 @@ public partial class GridEntity : Node2D
 	}
 
 	public void UpdatePosition(){
-		Position = GridPosition * TileSize;
+		RealPos = GridPosition * TileSize;
+	}
+	public override void _Process(double delta){
+		Position = Position.Lerp(RealPos, (float)delta * 10f); 
 	}
 }

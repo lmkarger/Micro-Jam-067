@@ -5,6 +5,7 @@ public partial class Character : GridEntity
 
 	public override void _Process(double delta)
     {	
+		base._Process(delta);
 		canMoveOnObstacle = false;
         Vector2I movement = Vector2I.Zero;
         if (Input.IsActionJustPressed("move_up"))

@@ -1,7 +1,11 @@
 using Godot;
+using System;
 
 public partial class GridEntity : Node2D
 {
+    // The factor to smooth. Higher = snappier, lower = slower
+    private const double smoothingFactor = 20d;
+
 	public Vector2I GridPosition = Vector2I.Zero;
 	protected bool canMoveOnObstacle;
 	private TileMapLayer Obstacles;
@@ -41,6 +45,7 @@ public partial class GridEntity : Node2D
 		RealPos = GridPosition * TileSize;
 	}
 	public override void _Process(double delta){
-		Position = Position.Lerp(RealPos, (float)delta * 10f); 
+        float step = 1f - (float)Math.Exp(-delta * smoothingFactor);
+		Position = Position.Lerp(RealPos, step); 
 	}
 }

@@ -2,6 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://dsajap2ui110c" path="res://environment/sprites/church_tiles.png" id="1_h77gt"]
 
+[sub_resource type="Environment" id="Environment_xf5mo"]
+background_mode = 3
+glow_enabled = true
+glow_bloom = 0.1
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ig4fv"]
 texture = ExtResource("1_h77gt")
 0:0/0 = 0
@@ -23,6 +28,22 @@ texture = ExtResource("1_h77gt")
 sources/0 = SubResource("TileSetAtlasSource_fuone")
 
 [node name="TestChurch" type="Node2D" unique_id=1005034703]
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1159993017]
+layer = -1
+
+[node name="Background" type="ColorRect" parent="Background" unique_id=501168079]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1217652372]
+environment = SubResource("Environment_xf5mo")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1186487324]
 

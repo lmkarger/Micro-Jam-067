@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MicroJam67"
 run/main_scene="uid://ytmdvirui3po"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
@@ -23,6 +23,12 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="MicroJam67"
+
+[file_customization]
+
+folder_colors={
+"res://environment/": "yellow"
+}
 
 [physics]
 

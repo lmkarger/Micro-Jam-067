@@ -9,7 +9,7 @@
 [node name="TestLevel1" type="Node2D" unique_id=1465580418]
 script = ExtResource("1_v5cfc")
 NextLevelPath = "uid://cwte36iupjr3p"
-NightDuration = 1
+NightDuration = 3
 metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
 
 [node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("1_ufh0b")]
@@ -26,6 +26,18 @@ position = Vector2(-72, -56)
 script = ExtResource("4_udfu3")
 SpawnCycle = 2
 SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner3" type="Node2D" parent="." unique_id=232003814]
+position = Vector2(-136, -40)
+script = ExtResource("4_udfu3")
+OnlySpawnDuringDay = true
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner4" type="Node2D" parent="." unique_id=758337883]
+position = Vector2(-136, -8)
+script = ExtResource("4_udfu3")
+OnlySpawnDuringNight = true
 metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
 
 [node name="BulletSpawner2" type="Node2D" parent="." unique_id=1328803273]

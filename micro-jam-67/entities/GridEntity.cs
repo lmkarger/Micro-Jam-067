@@ -12,11 +12,14 @@ public partial class GridEntity : Node2D
 
     [Export]
     public Vector2I GridPosition = Vector2I.Zero;
+    
+	protected TileMapLayer Obstacles;
+
+    protected TileMapLayer Floor;
 
 	protected bool canMoveOnObstacle;
     protected bool player;
-	protected TileMapLayer Obstacles;
-    protected TileMapLayer Floor;
+
     
     private const int TileSize = 16;
     /// <summary>
@@ -25,9 +28,10 @@ public partial class GridEntity : Node2D
     private const double smoothingFactor = 20d;
 
     public override void _Ready()
-    {
-        Obstacles = GetTree().CurrentScene.GetNode<TileMapLayer>("%Obstacles");
-        Floor = GetTree().CurrentScene.GetNode<TileMapLayer>("%Floor");
+    {   
+        LevelTemplate Template = GetTree().CurrentScene.GetNode<LevelTemplate>("LevelTemplate");
+        Obstacles = Template.Obstacles;
+        Floor = Template.Floor;
 
         if (SnapToClosestPosition)
         {

@@ -2,11 +2,16 @@ using Godot;
 
 public partial class Character : GridEntity
 {
+    private AnimationPlayer animationPlayer;
+
     public override void _Ready()
     {
         base._Ready();
 
         GameManager.Instance.PlayerPositions.Add(GridPosition);
+
+        GameManager.Instance.GameEnded += () => OnDeath();
+        animationPlayer = GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
     }
 
     public override void _Process(double delta)
@@ -43,4 +48,10 @@ public partial class Character : GridEntity
         return false;
     }
 
+    private void OnDeath()
+    {
+        if (animationPlayer == null) return;
+
+        animationPlayer.Play("kill");
+    }
 }

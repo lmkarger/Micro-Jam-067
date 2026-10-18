@@ -108,7 +108,7 @@ tile_map_data = PackedByteArray("AAD7//T/AAACAAEAAAD7//X/AAACAAIAAAD7//b/AAACAAM
 tile_set = SubResource("TileSet_kek77")
 
 [node name="Character" parent="." unique_id=455296345 instance=ExtResource("2_tefeu")]
-position = Vector2(0, 16)
+position = Vector2(-61, -45)
 GridPosition = Vector2i(-4, -2)
 
 [node name="Camera2D" type="Camera2D" parent="Character" unique_id=457686773]

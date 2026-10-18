@@ -25,6 +25,8 @@ public partial class Demon : GridEntity
     /// </summary>
     private void UpdateAppearance()
     {
+        if (!IsInstanceValid(this)) return;
+        
         bool isDay = GameManager.Instance.IsDay();
         sprite.Frame = isDay ? 1 : 0;
     }

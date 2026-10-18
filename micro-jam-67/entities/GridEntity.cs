@@ -46,15 +46,16 @@ public partial class GridEntity : Node2D
 		GlobalPosition = GlobalPosition.Lerp(GetTargetPosition(), step); 
 	}
 
-	public void Move(Vector2I direction) {
+	public virtual bool Move(Vector2I direction) {
 		Vector2I finalPos = GridPosition + direction;
-		if (ValidateMove(finalPos)){
-			GridPosition += direction;
-            
-			if (player) {
-				GameManager.Instance.AdvanceTime(1);
-			}
-		}
+        if (ValidateMove(finalPos))
+        {
+            GridPosition += direction;
+
+            return true;
+        }
+
+        return false;
 	}
 
     public virtual bool ValidateMove(Vector2I coordinate)

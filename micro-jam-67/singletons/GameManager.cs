@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 
@@ -14,9 +15,13 @@ public partial class GameManager : Node
     [Signal]
     public delegate void GameTickedEventHandler();
 
+    [Signal]
+    public delegate void PlayerPositionChangedEventHandler(Vector2I newPlayerPosition);
+
     public static GameManager Instance { get; private set; }
 
     private int _gameTime;
+    public List<Vector2I> PlayerPositions = new();
 
     public int GameTime
     {
@@ -30,17 +35,31 @@ public partial class GameManager : Node
     {
         GameTime = 0;
         Instance = this;
+
+        GetTree().CreateTimer(0.5).Timeout += () => AdvanceTime(10);
     }
-    
+
     public bool IsDay()
     {
         return GameTime >= NightDuration;
     }
 
-	public void AdvanceTime(int amount){
-		GameTime += amount;
-        EmitSignal(SignalName.GameTicked);
-	}
+    public void PlayerMoved(Vector2I newPosition)
+    {
+        PlayerPositions.Add(newPosition);
+        AdvanceTime(1);
+        EmitSignal(SignalName.PlayerPositionChanged, newPosition);
+    }
+    
+    public void AdvanceTime(int amount)
+    {
+        GameTime += amount;
+
+        for (int i = 0; i < amount; i++)
+        {
+            EmitSignal(SignalName.GameTicked);
+        }
+    }
 
 	public void AdvancePhase(){
 		GamePhase++;

@@ -57,6 +57,8 @@ public partial class BulletSpawner : GridEntity
 
     private void SpawnBullet()
     {
+        if (!IsInstanceValid(this)) return;
+
         var bullet = BulletScene.Instantiate<Bullet>();
         bullet.GridPosition = GridPosition;
         bullet.SnapToClosestPosition = false;

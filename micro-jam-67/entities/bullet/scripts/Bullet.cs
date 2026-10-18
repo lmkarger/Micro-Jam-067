@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 using System.Net.Http.Headers;
 
 [GlobalClass]
@@ -58,6 +59,23 @@ public partial class Bullet : GridEntity
             return;
         }
 
+        Vector2I previousPos = GridPosition;
+        Vector2I currentPlayerPos = GameManager.Instance.PlayerPositions.Last();
+
         base.Move(Direction);
+
+        bool isOnPlayer = currentPlayerPos == GridPosition;
+        bool passedThroughPlayer = false;
+
+        if (GameManager.Instance.PlayerPositions.Count >= 2)
+        {
+            Vector2I previousPlayerPos = GameManager.Instance.PlayerPositions[GameManager.Instance.PlayerPositions.Count - 2];
+            passedThroughPlayer = (GridPosition == previousPlayerPos) && (previousPos == currentPlayerPos);
+        }
+
+        if (isOnPlayer || passedThroughPlayer)
+        {
+            GetTree().ReloadCurrentScene();
+        }
     }
 }

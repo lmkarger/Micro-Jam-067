@@ -13,6 +13,8 @@ public partial class BulletSpawnerVisuals : Node2D
 
     public void DisplayPhase(int phase)
     {
+        if (!IsInstanceValid(this)) return;
+
         if (_phaseLabel == null) return;
 
         _phaseLabel.Text = phase == 0 ? "" : phase.ToString();

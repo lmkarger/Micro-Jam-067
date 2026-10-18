@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Reflection.Metadata.Ecma335;
 
 public partial class DayNightModulate : CanvasModulate
 {
@@ -23,6 +24,8 @@ public partial class DayNightModulate : CanvasModulate
 
     private void UpdateModulate()
     {
+        if (!IsInstanceValid(this)) return;
+
         Tween tween = GetTree().CreateTween();
         tween.TweenProperty(this, "color", GetTargetColor(), tweenDuration)
             .SetTrans(tweenTrans);

@@ -35,6 +35,7 @@ project/assembly_name="MicroJam67"
 folder_colors={
 "res://entities/": "green",
 "res://environment/": "yellow",
+"res://gui/": "pink",
 "res://scenes/": "purple",
 "res://singletons/": "blue"
 }

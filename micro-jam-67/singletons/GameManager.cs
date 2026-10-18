@@ -1,9 +1,13 @@
 using Godot;
 using System;
+using System.Dynamic;
 using System.Runtime.CompilerServices;
 
 public partial class GameManager : Node
 {
+    public const int NightDuration = 8;
+    public const int DayDuration = 2;
+
     /// <summary>
     /// The event fired when the game tick is updated (upon player movement).
     /// </summary>
@@ -12,27 +16,39 @@ public partial class GameManager : Node
 
     public static GameManager Instance { get; private set; }
 
-    public static int GameTime = 0;
-	public static int GamePhase = 1;
+    public int GameTime
+    {
+        get { return GameTime; }
+        private set { GameTime = value % (NightDuration + DayDuration); }
+    }
 
-	public override void _Ready(){
+    public int GamePhase = 1;
+
+    public override void _Ready()
+    {
+        GameTime = 0;
         Instance = this;
-	}
+    }
+    
+    public bool IsDay()
+    {
+        return GameTime > NightDuration;
+    }
 
 	public void AdvanceTime(int amount){
 		GameTime += amount;
         EmitSignal(SignalName.GameTicked);
 	}
 
-	public static void AdvancePhase(){
+	public void AdvancePhase(){
 		GamePhase++;
 	}
 
-	public static void ResetGameTime(){
+	public void ResetGameTime(){
 		GameTime = 0;
 	}
 
-	public static void ResetGamePhase(){
+	public void ResetGamePhase(){
 		GamePhase = 0;
 	}
 	

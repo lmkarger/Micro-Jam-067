@@ -2,9 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dsajap2ui110c" path="res://environment/sprites/church_tiles.png" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="2_tefeu"]
-[ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/church_demon.tscn" id="3_o6xl0"]
-[ext_resource type="Script" uid="uid://bc4w4v6x228ws" path="res://entities/bullet/BulletManager.cs" id="4_tipki"]
-[ext_resource type="Script" uid="uid://dh0x6odhwfwdj" path="res://entities/bullet/Bullet.cs" id="5_85g3d"]
+[ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_o6xl0"]
 
 [sub_resource type="Environment" id="Environment_xf5mo"]
 background_mode = 3
@@ -119,10 +117,3 @@ position_smoothing_enabled = true
 [node name="ChurchDemon" parent="." unique_id=646990748 instance=ExtResource("3_o6xl0")]
 position = Vector2(-63, -100)
 GridPosition = Vector2i(-4, -6)
-
-[node name="BulletManager" type="Node2D" parent="." unique_id=528473633]
-script = ExtResource("4_tipki")
-
-[node name="Bullet" type="Node2D" parent="." unique_id=1060543659]
-script = ExtResource("5_85g3d")
-metadata/_custom_type_script = "uid://bgor856iq53or"

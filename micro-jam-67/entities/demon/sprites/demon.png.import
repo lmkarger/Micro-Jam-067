@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqsmw336hvcjl"
-path="res://.godot/imported/church_demon.png-b47b19d2227bde09a112fbb836bbded2.ctex"
+path="res://.godot/imported/demon.png-7674231729dba5fe32e041e4b2fe4082.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/demon/church_demon.png"
-dest_files=["res://.godot/imported/church_demon.png-b47b19d2227bde09a112fbb836bbded2.ctex"]
+source_file="res://entities/demon/sprites/demon.png"
+dest_files=["res://.godot/imported/demon.png-7674231729dba5fe32e041e4b2fe4082.ctex"]
 
 [params]
 

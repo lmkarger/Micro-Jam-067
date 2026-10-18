@@ -13,7 +13,7 @@ public partial class GameManager : Node
 
 	private void InitializeGame()
 	{
-    BulletManager.Instance.GenerateBullets(GamePhase);
+        BulletManager.Instance.GenerateBullets(GamePhase);
 	}
 
 	public static void AdvanceTime(int amount){

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ck6mirlab0t23"]
 
-[ext_resource type="Texture2D" uid="uid://bqsmw336hvcjl" path="res://entities/demon/church_demon.png" id="1_0fie2"]
+[ext_resource type="Texture2D" uid="uid://bqsmw336hvcjl" path="res://entities/demon/sprites/demon.png" id="1_0fie2"]
 [ext_resource type="Script" uid="uid://bgor856iq53or" path="res://entities/GridEntity.cs" id="1_r30g2"]
 
 [sub_resource type="Gradient" id="Gradient_glpr6"]

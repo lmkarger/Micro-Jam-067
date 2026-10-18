@@ -10,7 +10,8 @@ public partial class GridEntity : Node2D
 	[Export]
 	public Vector2I GridPosition = Vector2I.Zero;
 	protected bool canMoveOnObstacle;
-	protected bool player;
+    protected bool player;
+    
 	private TileMapLayer Obstacles;
 	private TileMapLayer Floor;
 	private Vector2I RealPos;
@@ -33,9 +34,9 @@ public partial class GridEntity : Node2D
 	public void Move(Vector2I direction){
 		Vector2I finalPos = GridPosition + direction;
 		if (ValidateMove(finalPos)){
-			GD.Print("movement!");
 			GridPosition += direction;
-			UpdatePosition();
+            UpdatePosition();
+            
 			if (player){
 				GameManager.AdvanceTime(1);
 			}

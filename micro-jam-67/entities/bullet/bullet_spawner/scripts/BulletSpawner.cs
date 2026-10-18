@@ -14,6 +14,12 @@ public partial class BulletSpawner : GridEntity
     [Export]
     public PackedScene BulletScene = GD.Load<PackedScene>("uid://eetk1gkylpkv");
 
+    [Export]
+    public bool OnlySpawnDuringDay = false;
+
+    [Export]
+    public bool OnlySpawnDuringNight = false;
+
     /// <summary>
     /// How many ticks it takes to spawn one bullet.
     /// </summary>
@@ -24,7 +30,7 @@ public partial class BulletSpawner : GridEntity
     /// The starting phase for the spawn cycle. When this reaches SpawnCycle, a bullet is spawned.
     /// </summary>
     [Export]
-    public int Phase = 0;
+    public int Phase = 1;
 
     /// <summary>
     /// The direction to spawn the bullet facing.
@@ -49,7 +55,12 @@ public partial class BulletSpawner : GridEntity
         if (Phase <= 0)
         {
             Phase = SpawnCycle;
-            SpawnBullet();
+            var isDay = GameManager.Instance.IsDay();
+            
+            if (OnlySpawnDuringDay && isDay || OnlySpawnDuringNight && !isDay || !OnlySpawnDuringDay && !OnlySpawnDuringNight)
+            {
+                SpawnBullet();
+            }
         }
 
         if (_visuals != null) _visuals.DisplayPhase(Phase);

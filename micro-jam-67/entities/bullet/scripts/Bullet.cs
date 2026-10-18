@@ -25,13 +25,30 @@ public partial class Bullet : GridEntity
     public override void _Ready()
     {
         base._Ready();
-        GameManager.Instance.GameTicked += () => Move();
+        GameManager.Instance.GameTicked += Move;
 
         sprite = GetNodeOrNull<Sprite2D>("Sprite2D");
         UpdateSpriteDirection();
 
         animationPlayer = GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+
+        if (GameManager.Instance.PlayerPositions.Count > 0 && GridPosition == GameManager.Instance.PlayerPositions.Last())
+        {
+            GameManager.Instance.EndGame(false);
+            Destroy();
+        }
     }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.GameTicked -= Move;
+        }
+    }
+
 
     private void UpdateSpriteDirection()
     {

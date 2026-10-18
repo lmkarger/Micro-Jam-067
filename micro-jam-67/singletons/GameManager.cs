@@ -1,14 +1,15 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 public partial class GameManager : Node
 {
-    public const int NightDuration = 8;
-    public const int DayDuration = 2;
+    public int NightDuration = 8;
+    public int DayDuration = 2;
 
     /// <summary>
     /// The event fired when the game tick is updated (upon player movement).
@@ -21,6 +22,9 @@ public partial class GameManager : Node
 
     [Signal]
     public delegate void GameEndedEventHandler(bool win);
+
+    [Signal]
+    public delegate void NextLevelSelectedEventHandler();
 
     public static GameManager Instance { get; private set; }
 
@@ -46,11 +50,6 @@ public partial class GameManager : Node
     public bool IsDay()
     {
         return GameTime >= NightDuration;
-    }
-    
-    public async Task StartGame()
-    {
-        GetTree().CreateTimer(0.1).Timeout += () => AdvanceTime(10);
     }
 
     public void EndGame(bool win)
@@ -78,18 +77,33 @@ public partial class GameManager : Node
         }
     }
 
-	public void AdvancePhase() {
-		GamePhase++;
-	}
-
-	public void ResetGame()
+    public void AdvancePhase()
+    {
+        GamePhase++;
+    }
+    
+    public void ResetState()
     {
         GameTime = 0;
         GamePhase = 0;
-
         PlayerPositions.Clear();
         GameOver = false;
+    }
+
+    public void ResetGame()
+    {
+        ResetState();
         GetTree().ReloadCurrentScene();
     }
-	
+
+    public void SignalNextLevel()
+    {
+        EmitSignal(SignalName.NextLevelSelected);
+    }
+    
+    public void ChangeLevel(string levelPath)
+    {
+        GetTree().ChangeSceneToFile(levelPath);
+        ResetState();
+    }
 }

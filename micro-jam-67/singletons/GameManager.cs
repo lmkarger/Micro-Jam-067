@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 public partial class GameManager : Node
 {
@@ -40,13 +41,16 @@ public partial class GameManager : Node
     {
         GameTime = 0;
         Instance = this;
-
-        GetTree().CreateTimer(0.5).Timeout += () => AdvanceTime(10);
     }
 
     public bool IsDay()
     {
         return GameTime >= NightDuration;
+    }
+    
+    public async Task StartGame()
+    {
+        GetTree().CreateTimer(0.1).Timeout += () => AdvanceTime(10);
     }
 
     public void EndGame()

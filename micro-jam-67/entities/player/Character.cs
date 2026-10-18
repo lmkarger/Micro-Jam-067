@@ -12,6 +12,8 @@ public partial class Character : GridEntity
 
         GameManager.Instance.GameEnded += () => OnDeath();
         animationPlayer = GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+
+        GameManager.Instance.StartGame();
     }
 
     public override void _Process(double delta)
@@ -50,7 +52,7 @@ public partial class Character : GridEntity
 
     private void OnDeath()
     {
-        if (animationPlayer == null) return;
+        if (!IsInstanceValid(animationPlayer)) return;
 
         animationPlayer.Play("kill");
     }

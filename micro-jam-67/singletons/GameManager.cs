@@ -34,7 +34,7 @@ public partial class GameManager : Node
     
     public bool IsDay()
     {
-        return GameTime > NightDuration;
+        return GameTime >= NightDuration;
     }
 
 	public void AdvanceTime(int amount){

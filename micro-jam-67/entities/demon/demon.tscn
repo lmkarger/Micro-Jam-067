@@ -1,7 +1,29 @@
 [gd_scene format=3 uid="uid://ck6mirlab0t23"]
 
 [ext_resource type="Texture2D" uid="uid://bqsmw336hvcjl" path="res://entities/demon/sprites/demon.png" id="1_0fie2"]
-[ext_resource type="Script" uid="uid://bgor856iq53or" path="res://entities/GridEntity.cs" id="1_r30g2"]
+[ext_resource type="Script" uid="uid://ca6a4b7ysaker" path="res://entities/demon/Demon.cs" id="1_gs8ps"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs8ps"]
+atlas = ExtResource("1_0fie2")
+region = Rect2(0, 0, 32, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1saa8"]
+atlas = ExtResource("1_0fie2")
+region = Rect2(32, 0, 32, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xf5mo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs8ps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1saa8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Gradient" id="Gradient_glpr6"]
 offsets = PackedFloat32Array(0, 0.5180723, 0.7891566, 1)
@@ -69,13 +91,15 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
-[node name="ChurchDemon" type="Node2D" unique_id=1348210618]
-script = ExtResource("1_r30g2")
+[node name="ChurchDemon" type="Node2D" unique_id=1348210618 node_paths=PackedStringArray("animationPlayer", "sprite")]
+script = ExtResource("1_gs8ps")
+animationPlayer = NodePath("AnimationPlayer")
+sprite = NodePath("Sprite2D")
 metadata/_custom_type_script = "uid://bgor856iq53or"
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=156191748]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=931043789]
 position = Vector2(0, -12)
-texture = ExtResource("1_0fie2")
+sprite_frames = SubResource("SpriteFrames_xf5mo")
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=754922616]
 self_modulate = Color(1, 1, 1, 0.54901963)

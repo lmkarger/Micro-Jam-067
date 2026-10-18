@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dsajap2ui110c" path="res://environment/sprites/church_tiles.png" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://eetk1gkylpkv" path="res://entities/bullet/bullets/basic_bullet/basic_bullet.tscn" id="4_jyhfs"]
 
 [sub_resource type="Environment" id="Environment_xf5mo"]
 background_mode = 3
@@ -106,14 +107,47 @@ tile_map_data = PackedByteArray("AAD7//T/AAACAAEAAAD7//X/AAACAAIAAAD7//b/AAACAAM
 tile_set = SubResource("TileSet_kek77")
 
 [node name="Character" parent="." unique_id=455296345 instance=ExtResource("2_tefeu")]
-position = Vector2(-61, -45)
-GridPosition = Vector2i(-4, -2)
+position = Vector2(-119, -8)
 
-[node name="Camera2D" type="Camera2D" parent="Character" unique_id=457686773]
-position = Vector2(8, 8)
-scale = Vector2(9.999999, 9.999999)
-position_smoothing_enabled = true
+[node name="ChurchDemon" parent="." unique_id=1348210618 instance=ExtResource("3_o6xl0")]
+position = Vector2(-57, -89)
 
-[node name="ChurchDemon" parent="." unique_id=646990748 instance=ExtResource("3_o6xl0")]
-position = Vector2(-63, -100)
-GridPosition = Vector2i(-4, -6)
+[node name="BasicBullet" parent="." unique_id=2024464334 instance=ExtResource("4_jyhfs")]
+position = Vector2(-152, -40)
+
+[node name="BasicBullet2" parent="." unique_id=2124459591 instance=ExtResource("4_jyhfs")]
+position = Vector2(-152, -8)
+
+[node name="BasicBullet3" parent="." unique_id=796678733 instance=ExtResource("4_jyhfs")]
+position = Vector2(-152, 24)
+
+[node name="BasicBullet4" parent="." unique_id=1439479845 instance=ExtResource("4_jyhfs")]
+position = Vector2(-152, 56)
+
+[node name="BasicBullet5" parent="." unique_id=161080461 instance=ExtResource("4_jyhfs")]
+position = Vector2(40, -40)
+Direction = Vector2i(-1, 0)
+
+[node name="BasicBullet6" parent="." unique_id=1653404650 instance=ExtResource("4_jyhfs")]
+position = Vector2(40, -8)
+Direction = Vector2i(-1, 0)
+
+[node name="BasicBullet7" parent="." unique_id=1682616580 instance=ExtResource("4_jyhfs")]
+position = Vector2(40, 24)
+Direction = Vector2i(-1, 0)
+
+[node name="BasicBullet8" parent="." unique_id=1491992847 instance=ExtResource("4_jyhfs")]
+position = Vector2(40, 56)
+Direction = Vector2i(-1, 0)
+
+[node name="BasicBullet9" parent="." unique_id=816492198 instance=ExtResource("4_jyhfs")]
+position = Vector2(-72, 104)
+Direction = Vector2i(0, -1)
+
+[node name="BasicBullet10" parent="." unique_id=279096013 instance=ExtResource("4_jyhfs")]
+position = Vector2(-56, 104)
+Direction = Vector2i(0, -1)
+
+[node name="BasicBullet11" parent="." unique_id=146552124 instance=ExtResource("4_jyhfs")]
+position = Vector2(-40, 104)
+Direction = Vector2i(0, -1)

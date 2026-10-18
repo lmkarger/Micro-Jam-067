@@ -1,24 +1,27 @@
 using Godot;
 using System;
+using System.Runtime.CompilerServices;
 
 public partial class GameManager : Node
 {
+    /// <summary>
+    /// The event fired when the game tick is updated (upon player movement).
+    /// </summary>
+    [Signal]
+    public delegate void GameTickedEventHandler();
 
-	public static int GameTime = 0;
+    public static GameManager Instance { get; private set; }
+
+    public static int GameTime = 0;
 	public static int GamePhase = 1;
 
 	public override void _Ready(){
-		CallDeferred(nameof(InitializeGame));
+        Instance = this;
 	}
 
-	private void InitializeGame()
-	{
-        BulletManager.Instance.GenerateBullets(GamePhase);
-	}
-
-	public static void AdvanceTime(int amount){
+	public void AdvanceTime(int amount){
 		GameTime += amount;
-		BulletManager.Instance.MoveBullets();
+        EmitSignal(SignalName.GameTicked);
 	}
 
 	public static void AdvancePhase(){

@@ -1,32 +1,35 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class Bullet : GridEntity
 {
-	// Called when the node enters the scene tree for the first time.
-	private Vector2I direction;
-	public Bullet()
+    /// <summary>
+    /// The direction the bullet moves each game tick.
+    /// </summary>
+    [Export]
+    public Vector2I Direction { get; private set; } = Vector2I.Right;
+
+    private Sprite2D sprite;
+
+    public override void _Ready()
     {
+        base._Ready();
+        GameManager.Instance.GameTicked += () => Move();
+
+        sprite = GetNodeOrNull<Sprite2D>("Sprite2D");
+        UpdateSpriteDirection();
     }
 
-	public void CreateBullet(Vector2I position, Vector2I dir){
-		Sprite2D sprite = new Sprite2D();
-		sprite.Texture = GD.Load<Texture2D>("uid://be1vm83r70nk");
-		sprite.Centered = false;
-		AddChild(sprite);
-		direction = dir;
-		GridPosition = position;
-		canMoveOnObstacle = false;
-		player = false;
-		UpdatePosition();
-	}
+    private void UpdateSpriteDirection()
+    {
+        if (sprite is null) return;
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public void Move()
-	{
-		base.Move(direction);
-	}
-	public Vector2I getDirection(){
-		return direction;
-	}
+        sprite.Rotation = ((Vector2)Direction).Angle();
+    }
+
+    private void Move()
+    {
+        base.Move(Direction);
+    }
 }

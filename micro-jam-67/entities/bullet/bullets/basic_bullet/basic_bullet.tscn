@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://eetk1gkylpkv"]
+
+[ext_resource type="Script" uid="uid://dh0x6odhwfwdj" path="res://entities/bullet/scripts/Bullet.cs" id="1_5sx7h"]
+[ext_resource type="Texture2D" uid="uid://be1vm83r70nk" path="res://entities/bullet/bullets/basic_bullet/sprites/basic_bullet.png" id="2_j30np"]
+
+[node name="BasicBullet" type="Node2D" unique_id=2024464334]
+script = ExtResource("1_5sx7h")
+metadata/_custom_type_script = "uid://dh0x6odhwfwdj"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1654078485]
+texture = ExtResource("2_j30np")

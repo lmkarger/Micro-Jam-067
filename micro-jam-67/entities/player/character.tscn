@@ -20,10 +20,13 @@ script = ExtResource("1_pjt0s")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1190661927]
 texture = ExtResource("1_glpr6")
-centered = false
 
 [node name="Shadow" type="Sprite2D" parent="." unique_id=795676832]
 self_modulate = Color(1, 1, 1, 0.54901963)
 z_index = -1
-position = Vector2(8, 15)
+position = Vector2(0, 7)
 texture = SubResource("GradientTexture2D_xf5mo")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=204236564]
+scale = Vector2(9.999999, 9.999999)
+position_smoothing_enabled = true

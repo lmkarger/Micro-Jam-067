@@ -8,7 +8,7 @@
 
 [node name="TestLevel1" type="Node2D" unique_id=1465580418]
 script = ExtResource("1_v5cfc")
-StartingTicks = 10
+NextLevelPath = "uid://cwte36iupjr3p"
 metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
 
 [node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("1_ufh0b")]

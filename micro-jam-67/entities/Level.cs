@@ -21,6 +21,14 @@ public partial class Level : Node2D
     {
         base._Ready();
         GameManager.Instance.AdvanceTime(StartingTicks);
+
+        GameManager.Instance.NextLevelSelected += OnNextLevelSelected;
     }
 
+    private void OnNextLevelSelected()
+    {
+        if (NextLevelPath == "") return;
+
+        GameManager.Instance.ChangeLevel(NextLevelPath);
+    }
 }

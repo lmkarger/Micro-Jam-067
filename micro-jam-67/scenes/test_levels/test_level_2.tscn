@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://cwte36iupjr3p"]
 
 [ext_resource type="PackedScene" uid="uid://cyfe37h1rtcm0" path="res://scenes/level_template.tscn" id="1_8483c"]
+[ext_resource type="Script" uid="uid://dcilhgtmwjj1m" path="res://entities/Level.cs" id="1_unhh6"]
 [ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="2_unhh6"]
 [ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_pf3qn"]
 [ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="4_25mqw"]
 
-[node name="TestLevel2" type="Node2D" unique_id=521509560]
+[node name="TestLevel2" type="Node2D" unique_id=1995485346]
+script = ExtResource("1_unhh6")
+metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
 
 [node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("1_8483c")]
 metadata/_edit_lock_ = true

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -21,6 +22,9 @@ public partial class GameManager : Node
 
     [Signal]
     public delegate void GameEndedEventHandler(bool win);
+
+    [Signal]
+    public delegate void NextLevelSelectedEventHandler();
 
     public static GameManager Instance { get; private set; }
 
@@ -73,18 +77,33 @@ public partial class GameManager : Node
         }
     }
 
-	public void AdvancePhase() {
-		GamePhase++;
-	}
-
-	public void ResetGame()
+    public void AdvancePhase()
+    {
+        GamePhase++;
+    }
+    
+    public void ResetState()
     {
         GameTime = 0;
         GamePhase = 0;
-
         PlayerPositions.Clear();
         GameOver = false;
+    }
+
+    public void ResetGame()
+    {
+        ResetState();
         GetTree().ReloadCurrentScene();
     }
-	
+
+    public void SignalNextLevel()
+    {
+        EmitSignal(SignalName.NextLevelSelected);
+    }
+    
+    public void ChangeLevel(string levelPath)
+    {
+        GetTree().ChangeSceneToFile(levelPath);
+        ResetState();
+    }
 }

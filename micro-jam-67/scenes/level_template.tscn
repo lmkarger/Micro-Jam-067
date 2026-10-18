@@ -17,6 +17,14 @@ height = 180
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="LabelSettings" id="LabelSettings_amll8"]
+font = ExtResource("3_770am")
+font_color = Color(0.31, 1, 0.34449995, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xf5mo"]
+font = ExtResource("3_770am")
+font_color = Color(1, 0.060000002, 0.24800026, 1)
+
 [sub_resource type="Environment" id="Environment_un07w"]
 background_mode = 3
 glow_enabled = true
@@ -137,10 +145,11 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=717713502 node_paths=PackedStringArray("_bloodOverlay", "_retryButton")]
+[node name="UI" type="CanvasLayer" parent="." unique_id=717713502 node_paths=PackedStringArray("_bloodOverlay", "_retryButton", "_nextButton")]
 script = ExtResource("2_amll8")
 _bloodOverlay = NodePath("BloodOverlay")
-_retryButton = NodePath("RetryButton")
+_retryButton = NodePath("VBoxContainer/RetryButton")
+_nextButton = NodePath("VBoxContainer/NextButton")
 
 [node name="BloodOverlay" type="TextureRect" parent="UI" unique_id=458427635]
 modulate = Color(1, 1, 1, 0)
@@ -154,21 +163,50 @@ mouse_filter = 2
 texture = SubResource("GradientTexture2D_cdatj")
 metadata/_edit_use_anchors_ = true
 
-[node name="RetryButton" type="Button" parent="UI" unique_id=2089293089]
-visible = false
-anchors_preset = 8
+[node name="VBoxContainer" type="VBoxContainer" parent="UI" unique_id=1933916305]
+anchors_preset = 13
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -15.5
-offset_right = 25.0
-offset_bottom = 15.5
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="LevelCompleteText" type="Label" parent="UI/VBoxContainer" unique_id=295509646]
+visible = false
+layout_mode = 2
+text = "Level Complete!"
+label_settings = SubResource("LabelSettings_amll8")
+
+[node name="LevelFailedText" type="Label" parent="UI/VBoxContainer" unique_id=1652836645]
+visible = false
+layout_mode = 2
+text = "Level Failed!"
+label_settings = SubResource("LabelSettings_xf5mo")
+
+[node name="RetryButton" type="Button" parent="UI/VBoxContainer" unique_id=2089293089]
+visible = false
+layout_mode = 2
 theme_override_fonts/font = ExtResource("3_770am")
 text = "Retry"
+
+[node name="NextButton" type="Button" parent="UI/VBoxContainer" unique_id=1852163572]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_770am")
+text = "Next
+"
+
+[node name="DarkOverlay" type="ColorRect" parent="UI" unique_id=1310265345]
+visible = false
+z_index = -5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.49019608)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575796708]
 environment = SubResource("Environment_un07w")

@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://ytmdvirui3po"]
 
+[ext_resource type="Script" uid="uid://cccx0qw7vy03h" path="res://environment/scripts/DayNightModulate.cs" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://dsajap2ui110c" path="res://environment/sprites/church_tiles.png" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_o6xl0"]
@@ -101,6 +102,11 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="Node2D" type="Node2D" unique_id=1350593897]
+
+[node name="DayNightModulate" type="CanvasModulate" parent="." unique_id=1772553777]
+script = ExtResource("1_jyhfs")
+DayModulate = Color(0.99607843, 1, 0.83137256, 1)
+NightModulate = Color(0.5019608, 0.6431373, 1, 1)
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1159993017]
 layer = -1

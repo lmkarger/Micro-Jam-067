@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://dsajap2ui110c" path="res://environment/sprites/church_tiles.png" id="1_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_o6xl0"]
-[ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/scripts/BulletSpawner.cs" id="4_jyhfs"]
 
 [sub_resource type="Environment" id="Environment_xf5mo"]
 background_mode = 3
@@ -161,9 +160,3 @@ position = Vector2(-56, 88)
 
 [node name="ChurchDemon" parent="." unique_id=1348210618 instance=ExtResource("3_o6xl0")]
 position = Vector2(-57, -89)
-
-[node name="BulletSpawner" type="Node2D" parent="." unique_id=1394190053]
-position = Vector2(-152, -40)
-script = ExtResource("4_jyhfs")
-SpawnCycle = 3
-metadata/_custom_type_script = "uid://cjm7fng5w4eq5"

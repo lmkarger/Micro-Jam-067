@@ -20,6 +20,7 @@ fill_to = Vector2(1, 0.5)
 
 [node name="BasicBullet" type="Node2D" unique_id=2024464334]
 script = ExtResource("1_5sx7h")
+PassThroughObstacles = true
 metadata/_custom_type_script = "uid://dh0x6odhwfwdj"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1654078485]

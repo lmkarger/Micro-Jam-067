@@ -15,9 +15,8 @@ public partial class GridEntity : Node2D
 
 	protected bool canMoveOnObstacle;
     protected bool player;
-    
-	private TileMapLayer Obstacles;
-    private TileMapLayer Floor;
+	protected TileMapLayer Obstacles;
+    protected TileMapLayer Floor;
     
     private const int TileSize = 16;
     /// <summary>
@@ -58,7 +57,7 @@ public partial class GridEntity : Node2D
 		}
 	}
 
-    public bool ValidateMove(Vector2I coordinate)
+    public virtual bool ValidateMove(Vector2I coordinate)
     {
         if (!canMoveOnObstacle)
         {

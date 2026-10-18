@@ -14,7 +14,7 @@ public partial class Demon : GridEntity
         base._Ready();
 
         animationPlayer.Play("idle");
-
+        GameManager.Instance.PlayerPositionChanged += (Vector2I newPlayerPosition) => playerMoved(newPlayerPosition);
         GameManager.Instance.GameTicked += () => UpdateAppearance();
         UpdateAppearance();
     }
@@ -29,5 +29,14 @@ public partial class Demon : GridEntity
         
         bool isDay = GameManager.Instance.IsDay();
         sprite.Frame = isDay ? 1 : 0;
+    }
+
+    private void playerMoved(Vector2I newPlayerPosition)
+    {
+        bool isOnPlayer = newPlayerPosition == GridPosition;
+        if (isOnPlayer)
+        {
+            GameManager.Instance.EndGame(true);
+        }
     }
 }

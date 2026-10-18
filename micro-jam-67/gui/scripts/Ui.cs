@@ -13,8 +13,25 @@ public partial class Ui : CanvasLayer
     {
         base._Ready();
 
-        GameManager.Instance.GameEnded += () => OnDeath();
+        GameManager.Instance.GameEnded += (bool win) => OnGameEnd(win);
         _retryButton.Pressed += () => GameManager.Instance.ResetGame();
+    }
+
+    private void OnGameEnd(bool win)
+    {
+        if (win){
+            OnWin();
+        }
+        else {
+            OnDeath();
+        }
+    }
+
+    private void OnWin()
+    {
+        GD.Print("sigma");
+        if (!IsInstanceValid(this)) return;
+        if (IsInstanceValid(_retryButton)) _retryButton.Show();
     }
 
     private void OnDeath()

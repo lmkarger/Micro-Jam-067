@@ -10,7 +10,7 @@ public partial class Character : GridEntity
 
         GameManager.Instance.PlayerPositions.Add(GridPosition);
 
-        GameManager.Instance.GameEnded += () => OnDeath();
+        GameManager.Instance.GameEnded += (bool win) => OnDeath(win);
         animationPlayer = GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
 
         GameManager.Instance.StartGame();
@@ -50,9 +50,9 @@ public partial class Character : GridEntity
         return false;
     }
 
-    private void OnDeath()
+    private void OnDeath(bool win)
     {
-        if (!IsInstanceValid(animationPlayer)) return;
+        if (!IsInstanceValid(animationPlayer) || win) return;
 
         animationPlayer.Play("kill");
     }

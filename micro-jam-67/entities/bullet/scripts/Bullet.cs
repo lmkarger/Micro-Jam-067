@@ -80,7 +80,7 @@ public partial class Bullet : GridEntity
 
         if (isOnPlayer || passedThroughPlayer)
         {
-            GameManager.Instance.EndGame();
+            GameManager.Instance.EndGame(false);
             Destroy();
         }
     }

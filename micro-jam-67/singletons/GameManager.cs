@@ -20,7 +20,7 @@ public partial class GameManager : Node
     public delegate void PlayerPositionChangedEventHandler(Vector2I newPlayerPosition);
 
     [Signal]
-    public delegate void GameEndedEventHandler();
+    public delegate void GameEndedEventHandler(bool win);
 
     public static GameManager Instance { get; private set; }
 
@@ -53,12 +53,12 @@ public partial class GameManager : Node
         GetTree().CreateTimer(0.1).Timeout += () => AdvanceTime(10);
     }
 
-    public void EndGame()
+    public void EndGame(bool win)
     {
         if (GameOver) return;
 
         GameOver = true;
-        EmitSignal(SignalName.GameEnded);
+        EmitSignal(SignalName.GameEnded, win);
     }
 
     public void PlayerMoved(Vector2I newPosition)

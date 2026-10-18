@@ -9,6 +9,7 @@
 [node name="TestLevel1" type="Node2D" unique_id=1465580418]
 script = ExtResource("1_v5cfc")
 NextLevelPath = "uid://cwte36iupjr3p"
+NightDuration = 1
 metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
 
 [node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("1_ufh0b")]

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 public partial class GameManager : Node
 {
-    public const int NightDuration = 8;
-    public const int DayDuration = 2;
+    public int NightDuration = 8;
+    public int DayDuration = 2;
 
     /// <summary>
     /// The event fired when the game tick is updated (upon player movement).

@@ -30,6 +30,14 @@ public partial class Bullet : GridEntity
 
     private void Move()
     {
+        if (!IsInstanceValid(this)) return;
+
+        if (!ValidateMove(GridPosition + Direction))
+        {
+            QueueFree();
+            return;
+        }
+
         base.Move(Direction);
     }
 }

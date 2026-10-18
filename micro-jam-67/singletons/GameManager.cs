@@ -47,11 +47,6 @@ public partial class GameManager : Node
     {
         return GameTime >= NightDuration;
     }
-    
-    public async Task StartGame()
-    {
-        GetTree().CreateTimer(0.1).Timeout += () => AdvanceTime(10);
-    }
 
     public void EndGame(bool win)
     {

@@ -19,6 +19,8 @@ public partial class Bullet : GridEntity
     public bool PassThroughObstacles = false;
 
     private Sprite2D sprite;
+    private AnimationPlayer animationPlayer;
+    private bool _disabled = false;
 
     public override void _Ready()
     {
@@ -27,6 +29,8 @@ public partial class Bullet : GridEntity
 
         sprite = GetNodeOrNull<Sprite2D>("Sprite2D");
         UpdateSpriteDirection();
+
+        animationPlayer = GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
     }
 
     private void UpdateSpriteDirection()
@@ -52,10 +56,11 @@ public partial class Bullet : GridEntity
     private void Move()
     {
         if (!IsInstanceValid(this)) return;
+        if (_disabled) return;
 
         if (!ValidateMove(GridPosition + Direction))
         {
-            QueueFree();
+            Destroy();
             return;
         }
 
@@ -75,7 +80,21 @@ public partial class Bullet : GridEntity
 
         if (isOnPlayer || passedThroughPlayer)
         {
-            GetTree().ReloadCurrentScene();
+            GameManager.Instance.EndGame();
+            Destroy();
         }
+    }
+
+    private void Destroy()
+    {
+        _disabled = true;
+
+        if (animationPlayer == null)
+        {
+            QueueFree();
+            return;
+        }
+
+        animationPlayer.Play("destroy");
     }
 }

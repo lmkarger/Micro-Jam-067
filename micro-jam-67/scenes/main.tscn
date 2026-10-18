@@ -6,6 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_o6xl0"]
 [ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="5_tbgi4"]
 
+[sub_resource type="Gradient" id="Gradient_tbgi4"]
+offsets = PackedFloat32Array(0, 0.19896641, 0.2842377, 0.38501292, 0.6020672, 0.78294575, 0.90697676, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.110366575, 1, 1, 1, 0.15503876, 1, 1, 1, 0.22695254, 1, 1, 1, 0.43145734, 1, 1, 1, 0.63081646, 1, 1, 1, 0.7978281, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xf5mo"]
+gradient = SubResource("Gradient_tbgi4")
+width = 320
+height = 180
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="Environment" id="Environment_xf5mo"]
 background_mode = 3
 glow_enabled = true
@@ -122,6 +133,19 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=59186918]
+
+[node name="BloodOverlay" type="TextureRect" parent="UI" unique_id=1253125519]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.58, 0.11599999, 0.11599999, 0.65882355)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_xf5mo")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1217652372]
 environment = SubResource("Environment_xf5mo")

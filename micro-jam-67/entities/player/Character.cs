@@ -12,6 +12,9 @@ public partial class Character : GridEntity
     public override void _Process(double delta)
     {
         base._Process(delta);
+
+        if (GameManager.Instance.GameOver) return;
+
         player = true;
         canMoveOnObstacle = false;
         Vector2I movement = Vector2I.Zero;
@@ -25,8 +28,7 @@ public partial class Character : GridEntity
         else if (Input.IsActionJustPressed("move_right"))
             movement = Vector2I.Right;
 
-        if (movement != Vector2I.Zero)
-            Move(movement);
+        if (movement != Vector2I.Zero) Move(movement);
     }
 
     public override bool Move(Vector2I direction)

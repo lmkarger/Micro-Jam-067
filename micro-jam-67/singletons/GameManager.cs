@@ -18,10 +18,15 @@ public partial class GameManager : Node
     [Signal]
     public delegate void PlayerPositionChangedEventHandler(Vector2I newPlayerPosition);
 
+    [Signal]
+    public delegate void GameEndedEventHandler();
+
     public static GameManager Instance { get; private set; }
 
     private int _gameTime;
     public List<Vector2I> PlayerPositions = new();
+
+    public bool GameOver { get; private set; }
 
     public int GameTime
     {
@@ -44,6 +49,14 @@ public partial class GameManager : Node
         return GameTime >= NightDuration;
     }
 
+    public void EndGame()
+    {
+        if (GameOver) return;
+
+        GameOver = true;
+        EmitSignal(SignalName.GameEnded);
+    }
+
     public void PlayerMoved(Vector2I newPosition)
     {
         PlayerPositions.Add(newPosition);
@@ -61,16 +74,18 @@ public partial class GameManager : Node
         }
     }
 
-	public void AdvancePhase(){
+	public void AdvancePhase() {
 		GamePhase++;
 	}
 
-	public void ResetGameTime(){
-		GameTime = 0;
-	}
+	public void ResetGame()
+    {
+        GameTime = 0;
+        GamePhase = 0;
 
-	public void ResetGamePhase(){
-		GamePhase = 0;
-	}
+        PlayerPositions.Clear();
+        GameOver = false;
+        GetTree().ReloadCurrentScene();
+    }
 	
 }

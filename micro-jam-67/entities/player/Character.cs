@@ -11,9 +11,22 @@ public partial class Character : GridEntity
 
         GameManager.Instance.PlayerPositions.Add(GridPosition);
 
-        GameManager.Instance.GameEnded += (bool win) => OnDeath(win);
+        GameManager.Instance.GameEnded += OnDeath;
+        GameManager.Instance.PortalTouched += OnPortalTouched;
+
         animationPlayer = GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
         clockSounds = GetNodeOrNull<AudioStreamPlayer>("ClockSound");
+    }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.GameEnded -= OnDeath;
+            GameManager.Instance.PortalTouched -= OnPortalTouched;
+        }
     }
 
     public override void _Process(double delta)
@@ -59,5 +72,10 @@ public partial class Character : GridEntity
         if (!IsInstanceValid(animationPlayer) || win) return;
 
         animationPlayer.Play("kill");
+    }
+
+    private void OnPortalTouched(Vector2I newPos)
+    {
+        GridPosition = newPos;
     }
 }

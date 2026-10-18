@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_udfu3"]
 [ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="4_udfu3"]
 [ext_resource type="PackedScene" uid="uid://b4taj6tvbb0iu" path="res://entities/clock/clock.tscn" id="6_eyl4h"]
+[ext_resource type="PackedScene" uid="uid://cqkpjfi2sr243" path="res://entities/portal/portal.tscn" id="7_2xrdf"]
 
 [node name="TestLevel1" type="Node2D" unique_id=1465580418]
 script = ExtResource("1_v5cfc")
@@ -25,31 +26,23 @@ position = Vector2(-56, -24)
 position = Vector2(-56, -88)
 
 [node name="BulletSpawner" type="Node2D" parent="." unique_id=503761848]
-position = Vector2(-72, -56)
+position = Vector2(40, -72)
 script = ExtResource("4_udfu3")
 SpawnCycle = 2
-SpawnDirection = Vector2i(0, 1)
-metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
-
-[node name="BulletSpawner3" type="Node2D" parent="." unique_id=232003814]
-position = Vector2(-136, -40)
-script = ExtResource("4_udfu3")
-OnlySpawnDuringDay = true
-metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
-
-[node name="BulletSpawner4" type="Node2D" parent="." unique_id=758337883]
-position = Vector2(-136, -8)
-script = ExtResource("4_udfu3")
-OnlySpawnDuringNight = true
-metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
-
-[node name="BulletSpawner2" type="Node2D" parent="." unique_id=1328803273]
-position = Vector2(-40, -56)
-script = ExtResource("4_udfu3")
-SpawnCycle = 2
-Phase = 2
 SpawnDirection = Vector2i(0, 1)
 metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
 
 [node name="Clock" parent="." unique_id=583376235 instance=ExtResource("6_eyl4h")]
 position = Vector2(-56, -40)
+
+[node name="Portal" parent="." unique_id=955426030 node_paths=PackedStringArray("link") instance=ExtResource("7_2xrdf")]
+position = Vector2(-120, -8)
+link = NodePath("../Portal2")
+
+[node name="Portal3" parent="." unique_id=1662671854 node_paths=PackedStringArray("link") instance=ExtResource("7_2xrdf")]
+position = Vector2(-88, -72)
+link = NodePath("../Portal")
+
+[node name="Portal2" parent="." unique_id=1299134942 node_paths=PackedStringArray("link") instance=ExtResource("7_2xrdf")]
+position = Vector2(8, -8)
+link = NodePath("../Portal3")

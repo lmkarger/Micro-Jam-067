@@ -4,6 +4,10 @@ using System;
 [GlobalClass]
 public partial class BulletSpawner : GridEntity
 {
+    private static PackedScene _bulletSpawnerVisualsScene = GD.Load<PackedScene>("uid://cyrms4jhblxel");
+
+    private BulletSpawnerVisuals _visuals;
+
     /// <summary>
     /// The scene of the bullet which this [BulletSpawner] should spawn.
     /// </summary>
@@ -14,13 +18,13 @@ public partial class BulletSpawner : GridEntity
     /// How many ticks it takes to spawn one bullet.
     /// </summary>
     [Export]
-    public uint SpawnCycle = 1;
+    public int SpawnCycle = 1;
 
     /// <summary>
     /// The starting phase for the spawn cycle. When this reaches SpawnCycle, a bullet is spawned.
     /// </summary>
     [Export]
-    public uint Phase = 0;
+    public int Phase = 0;
 
     /// <summary>
     /// The direction to spawn the bullet facing.
@@ -32,15 +36,23 @@ public partial class BulletSpawner : GridEntity
     {
         base._Ready();
         GameManager.Instance.GameTicked += () => OnGameTick();
+
+        _visuals = _bulletSpawnerVisualsScene.Instantiate<BulletSpawnerVisuals>();
+        AddChild(_visuals);
+        _visuals.DisplayPhase(Phase);
     }
 
     private void OnGameTick()
     {
-        Phase++;
-        if (Phase < SpawnCycle) return;
+        Phase--;
 
-        Phase = 0;
-        SpawnBullet();
+        if (Phase <= 0)
+        {
+            Phase = SpawnCycle;
+            SpawnBullet();
+        }
+
+        if (_visuals != null) _visuals.DisplayPhase(Phase);
     }
 
     private void SpawnBullet()

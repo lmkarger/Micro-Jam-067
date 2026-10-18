@@ -32,19 +32,19 @@ public partial class GridEntity : Node2D
 
         if (SnapToClosestPosition)
         {
-            Vector2 approxGridPos = (Position - new Vector2I(TileSize / 2, TileSize / 2)) / TileSize;
+            Vector2 approxGridPos = (GlobalPosition - new Vector2I(TileSize / 2, TileSize / 2)) / TileSize;
             GridPosition = new Vector2I(
                 (int)Math.Round(approxGridPos.X),
                 (int)Math.Round(approxGridPos.Y)
             );
         }
 
-        Position = GetTargetPosition(); // Instantly update position upon start
+        GlobalPosition = GetTargetPosition(); // Instantly update position upon start
     }
     
     public override void _Process(double delta) {
         float step = 1f - (float)Math.Exp(-delta * smoothingFactor);
-		Position = Position.Lerp(GetTargetPosition(), step); 
+		GlobalPosition = GlobalPosition.Lerp(GetTargetPosition(), step); 
 	}
 
 	public void Move(Vector2I direction) {

@@ -1,13 +1,15 @@
 using Godot;
 using System;
 
+[GlobalClass]
 public partial class GridEntity : Node2D
 {
     // The factor to smooth. Higher = snappier, lower = slower
     private const double smoothingFactor = 20d;
-
+	[Export]
 	public Vector2I GridPosition = Vector2I.Zero;
 	protected bool canMoveOnObstacle;
+	protected bool player;
 	private TileMapLayer Obstacles;
 	private TileMapLayer Floor;
 	private Vector2I RealPos; 
@@ -24,8 +26,12 @@ public partial class GridEntity : Node2D
 	public void Move(Vector2I direction){
 		Vector2I finalPos = GridPosition + direction;
 		if (ValidateMove(finalPos)){
+			GD.Print("movement!");
 			GridPosition += direction;
 			UpdatePosition();
+			if (player){
+				GameManager.AdvanceTime(1);
+			}
 		}
 	}
 

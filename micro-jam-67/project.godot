@@ -33,7 +33,10 @@ project/assembly_name="MicroJam67"
 [file_customization]
 
 folder_colors={
-"res://environment/": "yellow"
+"res://entities/": "green",
+"res://environment/": "yellow",
+"res://scenes/": "purple",
+"res://singletons/": "blue"
 }
 
 [input]

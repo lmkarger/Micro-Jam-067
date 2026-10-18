@@ -8,7 +8,7 @@ public partial class Bullet : GridEntity
     /// The direction the bullet moves each game tick.
     /// </summary>
     [Export]
-    public Vector2I Direction { get; private set; } = Vector2I.Right;
+    public Vector2I Direction = Vector2I.Right;
 
     private Sprite2D sprite;
 

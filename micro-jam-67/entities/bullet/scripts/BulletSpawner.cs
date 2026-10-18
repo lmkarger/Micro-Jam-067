@@ -17,12 +17,16 @@ public partial class BulletSpawner : GridEntity
     public uint SpawnCycle = 1;
 
     /// <summary>
+    /// The starting phase for the spawn cycle. When this reaches SpawnCycle, a bullet is spawned.
+    /// </summary>
+    [Export]
+    public uint Phase = 0;
+
+    /// <summary>
     /// The direction to spawn the bullet facing.
     /// </summary>
     [Export]
     public Vector2I SpawnDirection = Vector2I.Right;
-
-    private uint cycleCounter = 0;
 
     public override void _Ready()
     {
@@ -32,10 +36,10 @@ public partial class BulletSpawner : GridEntity
 
     private void OnGameTick()
     {
-        cycleCounter++;
-        if (cycleCounter < SpawnCycle) return;
+        Phase++;
+        if (Phase < SpawnCycle) return;
 
-        cycleCounter = 0;
+        Phase = 0;
         SpawnBullet();
     }
 
@@ -44,6 +48,7 @@ public partial class BulletSpawner : GridEntity
         var bullet = BulletScene.Instantiate<Bullet>();
         bullet.GridPosition = GridPosition;
         bullet.SnapToClosestPosition = false;
+        bullet.Direction = SpawnDirection;
 
         AddChild(bullet);
     }

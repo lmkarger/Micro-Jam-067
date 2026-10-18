@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="2_berhu"]
 [ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_udfu3"]
 [ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="4_udfu3"]
+[ext_resource type="PackedScene" uid="uid://b4taj6tvbb0iu" path="res://entities/clock/clock.tscn" id="6_eyl4h"]
 
 [node name="TestLevel1" type="Node2D" unique_id=1465580418]
 script = ExtResource("1_v5cfc")
@@ -49,3 +50,6 @@ SpawnCycle = 2
 Phase = 2
 SpawnDirection = Vector2i(0, 1)
 metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="Clock" parent="." unique_id=583376235 instance=ExtResource("6_eyl4h")]
+position = Vector2(-56, -40)

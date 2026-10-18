@@ -7,13 +7,14 @@
 [ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="4_udfu3"]
 [ext_resource type="PackedScene" uid="uid://b4taj6tvbb0iu" path="res://entities/clock/clock.tscn" id="6_eyl4h"]
 [ext_resource type="PackedScene" uid="uid://cqkpjfi2sr243" path="res://entities/portal/portal.tscn" id="7_2xrdf"]
+[ext_resource type="PackedScene" uid="uid://3842fpvxejg2" path="res://entities/barrier/night_barrier.tscn" id="8_5u14c"]
+[ext_resource type="PackedScene" uid="uid://de605ok6ualkc" path="res://entities/barrier/day_barrier.tscn" id="9_yg0sv"]
 
 [node name="TestLevel1" type="Node2D" unique_id=1465580418]
 script = ExtResource("1_v5cfc")
 NextLevelPath = "uid://cwte36iupjr3p"
 StartingTicks = 0
-NightDuration = 1
-DayDuration = 1
+NightDuration = 4
 metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
 
 [node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("1_ufh0b")]
@@ -46,3 +47,21 @@ link = NodePath("../Portal")
 [node name="Portal2" parent="." unique_id=1299134942 node_paths=PackedStringArray("link") instance=ExtResource("7_2xrdf")]
 position = Vector2(8, -8)
 link = NodePath("../Portal3")
+
+[node name="NightBarrier" parent="." unique_id=1457315619 instance=ExtResource("8_5u14c")]
+position = Vector2(-88, -40)
+
+[node name="NightBarrier2" parent="." unique_id=1063355264 instance=ExtResource("8_5u14c")]
+position = Vector2(-104, -40)
+
+[node name="NightBarrier3" parent="." unique_id=1453838111 instance=ExtResource("8_5u14c")]
+position = Vector2(-120, -40)
+
+[node name="DayBarrier" parent="." unique_id=484201389 instance=ExtResource("9_yg0sv")]
+position = Vector2(-24, -40)
+
+[node name="DayBarrier2" parent="." unique_id=841372390 instance=ExtResource("9_yg0sv")]
+position = Vector2(-8, -40)
+
+[node name="DayBarrier3" parent="." unique_id=1962425530 instance=ExtResource("9_yg0sv")]
+position = Vector2(8, -40)

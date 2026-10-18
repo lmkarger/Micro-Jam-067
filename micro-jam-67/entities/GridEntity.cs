@@ -74,10 +74,32 @@ public partial class GridEntity : Node2D
             {
                 return false;
             }
+            if (HasBarrier(coordinate))
+            {
+                return false;
+            }
         }
         return true;
     }
-    
+
+    public bool HasBarrier(Vector2I coordinates)
+    {
+        Godot.Collections.Array<Node> barriers = GetTree().GetNodesInGroup("barrier");
+
+        foreach (Node node in barriers)
+        {
+            if (node is not Barrier) continue;
+
+            Barrier bar = (Barrier)node;
+            if (bar.GridPosition != coordinates) continue;
+            if (!bar.IsToggled) continue;
+
+            return true;
+        }
+
+        return false;
+    }
+
     private Vector2 GetTargetPosition()
     {
         return GridPosition * TileSize + new Vector2I(TileSize / 2, TileSize / 2);

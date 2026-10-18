@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://de605ok6ualkc"]
+
+[ext_resource type="Script" uid="uid://brg8am021btuy" path="res://entities/barrier/Barrier.cs" id="1_as1sw"]
+[ext_resource type="Texture2D" uid="uid://b5jmqkmon7r3w" path="res://entities/barrier/celestial_barrier.png" id="2_aqx1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xf5mo"]
+atlas = ExtResource("2_aqx1f")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_kaurg"]
+offsets = PackedFloat32Array(0, 0.5180723, 0.7891566, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.8915663, 0, 0, 0, 0.5460844, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aqx1f"]
+gradient = SubResource("Gradient_kaurg")
+width = 22
+height = 22
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="DayBarrier" type="Node2D" unique_id=1457315619 groups=["barrier"]]
+z_index = -1
+script = ExtResource("1_as1sw")
+metadata/_custom_type_script = "uid://brg8am021btuy"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1371572982]
+texture = SubResource("AtlasTexture_xf5mo")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=478028329]
+self_modulate = Color(1, 1, 1, 0.54901963)
+z_index = -1
+texture = SubResource("GradientTexture2D_aqx1f")

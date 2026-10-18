@@ -22,6 +22,21 @@ public partial class Ui : CanvasLayer
         _nextButton.Pressed += GameManager.Instance.SignalNextLevel;
     }
 
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+
+        if (IsInstanceValid(_retryButton))
+        {
+            _retryButton.Pressed -= GameManager.Instance.ResetGame;
+        }
+
+        if (IsInstanceValid(_nextButton))
+        {
+            _nextButton.Pressed -= GameManager.Instance.SignalNextLevel;
+        }
+    }
+
     private void OnGameEnd(bool win)
     {
         if (!IsInstanceValid(this)) return;

@@ -16,6 +16,8 @@ public partial class Level : Node2D
     [Export]
     public String NextLevelPath = "";
 
+    
+
 
     public override void _Ready()
     {
@@ -23,6 +25,16 @@ public partial class Level : Node2D
         GameManager.Instance.AdvanceTime(StartingTicks);
 
         GameManager.Instance.NextLevelSelected += OnNextLevelSelected;
+    }
+
+    public override void _ExitTree()
+    {
+        base._ExitTree();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.NextLevelSelected -= OnNextLevelSelected;
+        }
     }
 
     private void OnNextLevelSelected()

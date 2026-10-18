@@ -1,0 +1,186 @@
+[gd_scene format=3 uid="uid://eetk1gkylpkv"]
+
+[ext_resource type="Script" uid="uid://dh0x6odhwfwdj" path="res://entities/bullet/scripts/Bullet.cs" id="1_5sx7h"]
+[ext_resource type="Texture2D" uid="uid://be1vm83r70nk" path="res://entities/bullet/bullets/basic_bullet/sprites/basic_bullet.png" id="2_j30np"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j30np"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b5oae"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_j30np"]
+offsets = PackedFloat32Array(0, 0.21084337, 0.37951806, 0.52409637, 0.686747, 0.8373494, 1)
+colors = PackedColorArray(1, 0.20999998, 0.32849967, 1, 0.60131437, 0.126276, 0.19753157, 1, 0.37349397, 0.07843372, 0.122692645, 1, 0.24319957, 0.051071905, 0.07989098, 1, 0.14843993, 0.031172384, 0.04876247, 1, 0.068202145, 0.0143224485, 0.022404382, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xf5mo"]
+gradient = SubResource("Gradient_j30np")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Curve" id="Curve_j30np"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.8622942, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_b5oae"]
+curve = SubResource("Curve_j30np")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xf5mo"]
+lifetime_randomness = 0.67
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(2, 2, 0)
+spread = 180.0
+initial_velocity_min = 29.48
+initial_velocity_max = 73.71
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_b5oae")
+color = Color(1, 0, 0.583333, 0.6156863)
+
+[sub_resource type="Animation" id="Animation_j30np"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Destroy:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Glow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3uyfx"]
+resource_name = "destroy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.17677678, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.13397178, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Destroy:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Glow:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.19614604, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p7eae"]
+_data = {
+&"RESET": SubResource("Animation_j30np"),
+&"destroy": SubResource("Animation_3uyfx")
+}
+
+[node name="BasicBullet" type="Node2D" unique_id=2024464334]
+script = ExtResource("1_5sx7h")
+PassThroughObstacles = true
+metadata/_custom_type_script = "uid://dh0x6odhwfwdj"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1654078485]
+material = SubResource("CanvasItemMaterial_j30np")
+texture = ExtResource("2_j30np")
+
+[node name="Glow" type="Sprite2D" parent="." unique_id=669559802]
+self_modulate = Color(1, 1, 1, 0.28627452)
+material = SubResource("CanvasItemMaterial_b5oae")
+texture = SubResource("GradientTexture2D_xf5mo")
+
+[node name="Destroy" type="GPUParticles2D" parent="." unique_id=239884830]
+emitting = false
+amount = 24
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xf5mo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2102760349]
+libraries/ = SubResource("AnimationLibrary_p7eae")

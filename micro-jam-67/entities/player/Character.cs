@@ -3,6 +3,7 @@ using Godot;
 public partial class Character : GridEntity
 {
     private AnimationPlayer animationPlayer;
+    private AudioStreamPlayer clockSounds;
 
     public override void _Ready()
     {
@@ -12,6 +13,7 @@ public partial class Character : GridEntity
 
         GameManager.Instance.GameEnded += (bool win) => OnDeath(win);
         animationPlayer = GetNodeOrNull<AnimationPlayer>("AnimationPlayer");
+        clockSounds = GetNodeOrNull<AudioStreamPlayer>("ClockSound");
     }
 
     public override void _Process(double delta)
@@ -41,6 +43,10 @@ public partial class Character : GridEntity
         if (base.Move(direction))
         {
             GameManager.Instance.PlayerMoved(GridPosition);
+            if (IsInstanceValid(clockSounds))
+            {
+                clockSounds.Play();
+            }
 
             return true;
         }

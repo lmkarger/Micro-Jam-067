@@ -15,9 +15,14 @@ run/main_scene="uid://ytmdvirui3po"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://c4vhm2uhhb4ko"
+
 [autoload]
 
 GameManager="*uid://nacmp7y4wua4"
+MusicManager="*uid://erfmsi40dd4u"
 
 [display]
 

@@ -16,10 +16,12 @@ public partial class GameManager : Node
 
     public static GameManager Instance { get; private set; }
 
+    private int _gameTime;
+
     public int GameTime
     {
-        get { return GameTime; }
-        private set { GameTime = value % (NightDuration + DayDuration); }
+        get { return _gameTime; }
+        private set { _gameTime = value % (NightDuration + DayDuration); }
     }
 
     public int GamePhase = 1;

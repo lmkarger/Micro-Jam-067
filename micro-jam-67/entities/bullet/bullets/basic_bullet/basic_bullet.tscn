@@ -3,9 +3,30 @@
 [ext_resource type="Script" uid="uid://dh0x6odhwfwdj" path="res://entities/bullet/scripts/Bullet.cs" id="1_5sx7h"]
 [ext_resource type="Texture2D" uid="uid://be1vm83r70nk" path="res://entities/bullet/bullets/basic_bullet/sprites/basic_bullet.png" id="2_j30np"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_j30np"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b5oae"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_j30np"]
+offsets = PackedFloat32Array(0, 0.21084337, 0.37951806, 0.52409637, 0.686747, 0.8373494, 1)
+colors = PackedColorArray(1, 0.20999998, 0.32849967, 1, 0.60131437, 0.126276, 0.19753157, 1, 0.37349397, 0.07843372, 0.122692645, 1, 0.24319957, 0.051071905, 0.07989098, 1, 0.14843993, 0.031172384, 0.04876247, 1, 0.068202145, 0.0143224485, 0.022404382, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xf5mo"]
+gradient = SubResource("Gradient_j30np")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="BasicBullet" type="Node2D" unique_id=2024464334]
 script = ExtResource("1_5sx7h")
 metadata/_custom_type_script = "uid://dh0x6odhwfwdj"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1654078485]
+material = SubResource("CanvasItemMaterial_j30np")
 texture = ExtResource("2_j30np")
+
+[node name="Glow" type="Sprite2D" parent="." unique_id=669559802]
+self_modulate = Color(1, 1, 1, 0.28627452)
+material = SubResource("CanvasItemMaterial_b5oae")
+texture = SubResource("GradientTexture2D_xf5mo")

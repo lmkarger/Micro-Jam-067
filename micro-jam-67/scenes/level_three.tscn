@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://bprstnysdtstg"]
+
+[ext_resource type="Script" uid="uid://dcilhgtmwjj1m" path="res://entities/Level.cs" id="1_jyw0m"]
+[ext_resource type="PackedScene" uid="uid://cyfe37h1rtcm0" path="res://scenes/level_template.tscn" id="1_ol28e"]
+[ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="2_jyw0m"]
+[ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="3_87c5r"]
+[ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="4_yguh4"]
+
+[node name="Node2D" type="Node2D" unique_id=754650991]
+script = ExtResource("1_jyw0m")
+StartingTicks = 2
+metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
+
+[node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("1_ol28e")]
+metadata/_edit_lock_ = true
+
+[node name="Character" parent="." unique_id=121774950 instance=ExtResource("2_jyw0m")]
+position = Vector2(-149, 98)
+
+[node name="ChurchDemon" parent="." unique_id=1348210618 instance=ExtResource("3_87c5r")]
+position = Vector2(-139, -87)
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=69144623]
+position = Vector2(-152, 40)
+script = ExtResource("4_yguh4")
+SpawnCycle = 2
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner2" type="Node2D" parent="." unique_id=1271044433]
+position = Vector2(-134, 41)
+script = ExtResource("4_yguh4")
+SpawnCycle = 2
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner3" type="Node2D" parent="." unique_id=1551131896]
+position = Vector2(8, 85)
+script = ExtResource("4_yguh4")
+SpawnCycle = 4
+Phase = 2
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner4" type="Node2D" parent="." unique_id=951139597]
+position = Vector2(7, 102)
+script = ExtResource("4_yguh4")
+SpawnCycle = 5
+Phase = 3
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner5" type="Node2D" parent="." unique_id=1749409468]
+position = Vector2(23, 103)
+script = ExtResource("4_yguh4")
+SpawnCycle = 3
+SpawnDirection = Vector2i(0, -1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner6" type="Node2D" parent="." unique_id=492895748]
+position = Vector2(-72, -57)
+script = ExtResource("4_yguh4")
+SpawnCycle = 3
+SpawnDirection = Vector2i(0, -1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner7" type="Node2D" parent="." unique_id=888003782]
+position = Vector2(-56, -56)
+script = ExtResource("4_yguh4")
+SpawnCycle = 3
+SpawnDirection = Vector2i(0, -1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner8" type="Node2D" parent="." unique_id=1137661220]
+position = Vector2(-39, 41)
+script = ExtResource("4_yguh4")
+Phase = 0
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner9" type="Node2D" parent="." unique_id=1186250037]
+position = Vector2(-135, 10)
+script = ExtResource("4_yguh4")
+SpawnCycle = 3
+Phase = 0
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner15" type="Node2D" parent="." unique_id=1820609506]
+position = Vector2(-150, 10)
+script = ExtResource("4_yguh4")
+SpawnCycle = 3
+Phase = 0
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner10" type="Node2D" parent="." unique_id=1184250358]
+position = Vector2(10, -2)
+script = ExtResource("4_yguh4")
+Phase = 0
+SpawnDirection = Vector2i(0, -1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner11" type="Node2D" parent="." unique_id=1551527389]
+position = Vector2(-110, -80)
+script = ExtResource("4_yguh4")
+Phase = 0
+SpawnDirection = Vector2i(0, -1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner12" type="Node2D" parent="." unique_id=1432633188]
+position = Vector2(-154, -68)
+script = ExtResource("4_yguh4")
+SpawnCycle = 6
+Phase = 2
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner13" type="Node2D" parent="." unique_id=556928965]
+position = Vector2(-74, -23)
+script = ExtResource("4_yguh4")
+Phase = 0
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner14" type="Node2D" parent="." unique_id=2070288081]
+position = Vector2(-121, 9)
+script = ExtResource("4_yguh4")
+Phase = 0
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner16" type="Node2D" parent="." unique_id=1745771207]
+position = Vector2(-134, -56)
+script = ExtResource("4_yguh4")
+Phase = 0
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"

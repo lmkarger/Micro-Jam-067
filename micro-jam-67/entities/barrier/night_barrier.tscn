@@ -19,6 +19,21 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kaurg"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_j30np"]
+offsets = PackedFloat32Array(0, 0.13855422, 0.27108434, 0.48192772, 0.6385542, 0.79518074, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.607038, 0.607038, 0.607038, 1, 0.38599682, 0.38599682, 0.38599682, 1, 0.20582598, 0.20582598, 0.20582598, 1, 0.12048191, 0.12048191, 0.12048191, 1, 0.07028112, 0.07028112, 0.07028112, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b0lag"]
+gradient = SubResource("Gradient_j30np")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
 [node name="NightBarrier" type="Node2D" unique_id=1457315619 groups=["barrier"]]
 z_index = -1
 script = ExtResource("1_kaurg")
@@ -32,3 +47,8 @@ texture = SubResource("AtlasTexture_xf5mo")
 self_modulate = Color(1, 1, 1, 0.54901963)
 z_index = -1
 texture = SubResource("GradientTexture2D_0ktfl")
+
+[node name="Glow" type="Sprite2D" parent="." unique_id=1236051030]
+self_modulate = Color(0.4000001, 0, 1, 0.28627452)
+material = SubResource("CanvasItemMaterial_kaurg")
+texture = SubResource("GradientTexture2D_b0lag")

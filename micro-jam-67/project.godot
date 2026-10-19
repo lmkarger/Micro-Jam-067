@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="MicroJam67"
+config/name="Tremendum"
 run/main_scene="uid://ytmdvirui3po"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://b8ngwn67xqpoa"
 
 [audio]
 

@@ -11,6 +11,7 @@
 
 [node name="Level" type="Node2D" unique_id=2112414036]
 script = ExtResource("1_d2yj3")
+NextLevelPath = "res://scenes/end_screen.tscn"
 StartingTicks = 6
 metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
 

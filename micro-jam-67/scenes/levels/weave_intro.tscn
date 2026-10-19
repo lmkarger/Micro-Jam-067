@@ -1,0 +1,71 @@
+[gd_scene format=4 uid="uid://sg1oowhafo70"]
+
+[ext_resource type="Script" uid="uid://dcilhgtmwjj1m" path="res://entities/Level.cs" id="1_wmrwr"]
+[ext_resource type="PackedScene" uid="uid://cyfe37h1rtcm0" path="res://scenes/level_template.tscn" id="2_fyt6o"]
+[ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="3_opyhl"]
+[ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="4_4cdat"]
+[ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="5_otjv8"]
+
+[node name="WeaveIntro" type="Node2D" unique_id=435421842]
+script = ExtResource("1_wmrwr")
+NextLevelPath = "res://scenes/level_two.tscn"
+metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
+
+[node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("2_fyt6o")]
+
+[node name="Obstacles" parent="LevelTemplate/Environment" parent_id_path=PackedInt32Array(1668428084, 553426241) index="0" unique_id=548479003]
+tile_map_data = PackedByteArray()
+
+[node name="Floor" parent="LevelTemplate/Environment" parent_id_path=PackedInt32Array(1668428084, 553426241) index="1" unique_id=748109633]
+tile_map_data = PackedByteArray("AAD6//n/AAAAAAAAAAD6//r/AAAAAAAAAAD6//v/AAAAAAAAAAD6//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD7//n/AAAAAAAAAAD7//r/AAAAAAAAAAD7//v/AAAAAAAAAAD8//n/AAAAAAAAAAD8//r/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9//n/AAAAAAAAAAD9//r/AAAAAAAAAAD9//z/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD+//n/AAAAAAAAAAD+//r/AAAAAAAAAAD+//v/AAAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD9//v/AAAAAAAAAAD7//z/AAAAAAAAAAD7//3/AAAAAAAAAAD7//7/AAAAAAAAAAD7////AAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD8//v/AAAAAAAAAAD5/wAAAAAAAAAAAAD3////AAAAAAAAAAD3/wAAAAAAAAAAAAD3/wEAAAAAAAAAAAD4////AAAAAAAAAAD4/wAAAAAAAAAAAAD4/wEAAAAAAAAAAAD5////AAAAAAAAAAD5/wEAAAAAAAAAAAA=")
+
+[node name="Window" parent="LevelTemplate/Environment" parent_id_path=PackedInt32Array(1668428084, 553426241) index="2" unique_id=203117628]
+tile_map_data = PackedByteArray("AAD7//T/AAACAAEAAAD7//X/AAACAAIAAAD7//b/AAACAAMAAAD7//f/AAACAAQAAAD8//T/AAADAAEAAAD8//X/AAADAAIAAAD8//b/AAADAAMAAAD8//f/AAADAAQAAAD9//T/AAAEAAEAAAD9//X/AAAEAAIAAAD9//b/AAAEAAMAAAD9//f/AAAEAAQAAAD6//j/AAAAAAIAAAD7//j/AAAAAAIAAAD8//j/AAAAAAIAAAD9//j/AAAAAAIAAAD+//j/AAAAAAIAAAD+//T/AAABAAIAAAD+//X/AAABAAIAAAD+//b/AAABAAIAAAD+//f/AAABAAIAAAD6//T/AAABAAIAAAD6//f/AAABAAIAAAD6//b/AAABAAIAAAD6//X/AAABAAIAAAD6//P/AAABAAIAAAD7//P/AAABAAIAAAD8//P/AAABAAIAAAD9//P/AAABAAIAAAD+//P/AAABAAIAAAA=")
+
+[node name="Character" parent="." unique_id=121774950 instance=ExtResource("3_opyhl")]
+position = Vector2(-120, 8)
+
+[node name="ChurchDemon" parent="." unique_id=1348210618 instance=ExtResource("4_4cdat")]
+position = Vector2(-57, -89)
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=793296352]
+position = Vector2(-88, -72)
+script = ExtResource("5_otjv8")
+SpawnCycle = 4
+Phase = 2
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner2" type="Node2D" parent="." unique_id=1651469097]
+position = Vector2(-72, -72)
+script = ExtResource("5_otjv8")
+SpawnCycle = 4
+Phase = 4
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner3" type="Node2D" parent="." unique_id=2000780199]
+position = Vector2(-40, -72)
+script = ExtResource("5_otjv8")
+SpawnCycle = 4
+Phase = 4
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner4" type="Node2D" parent="." unique_id=1894408725]
+position = Vector2(-56, -72)
+script = ExtResource("5_otjv8")
+SpawnCycle = 4
+Phase = 3
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner5" type="Node2D" parent="." unique_id=1840823973]
+position = Vector2(-24, -72)
+script = ExtResource("5_otjv8")
+SpawnCycle = 4
+Phase = 2
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[editable path="LevelTemplate"]

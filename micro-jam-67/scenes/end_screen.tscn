@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cagtfcnmieaw"]
+
+[ext_resource type="Script" uid="uid://dcilhgtmwjj1m" path="res://entities/Level.cs" id="1_kq7ac"]
+[ext_resource type="FontFile" uid="uid://otkv0xxa7fbn" path="res://gui/fonts/RolePlayer.ttf" id="2_6e1uj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xf5mo"]
+font = ExtResource("2_6e1uj")
+
+[node name="EndScreen" type="Node2D" unique_id=1953885218]
+script = ExtResource("1_kq7ac")
+metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=567063036]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1295365312]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1594057675]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_xf5mo")
+horizontal_alignment = 1
+vertical_alignment = 1

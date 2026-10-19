@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://csrboygj22ky6"]
+
+[ext_resource type="Script" uid="uid://dcilhgtmwjj1m" path="res://entities/Level.cs" id="1_d2yj3"]
+[ext_resource type="PackedScene" uid="uid://cyfe37h1rtcm0" path="res://scenes/level_template.tscn" id="2_qd7qr"]
+[ext_resource type="PackedScene" uid="uid://b4taj6tvbb0iu" path="res://entities/clock/clock.tscn" id="3_ijsq2"]
+[ext_resource type="PackedScene" uid="uid://3842fpvxejg2" path="res://entities/barrier/night_barrier.tscn" id="4_q3apq"]
+[ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="5_2aq8n"]
+[ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="6_q3apq"]
+[ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="7_2aq8n"]
+[ext_resource type="PackedScene" uid="uid://de605ok6ualkc" path="res://entities/barrier/day_barrier.tscn" id="8_2aq8n"]
+
+[node name="Level" type="Node2D" unique_id=2112414036]
+script = ExtResource("1_d2yj3")
+StartingTicks = 6
+metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
+
+[node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("2_qd7qr")]
+
+[node name="Clock" parent="." unique_id=583376235 instance=ExtResource("3_ijsq2")]
+position = Vector2(-56, 106)
+
+[node name="Clock2" parent="." unique_id=1325882757 instance=ExtResource("3_ijsq2")]
+position = Vector2(39, -6)
+
+[node name="NightBarrier" parent="." unique_id=1457315619 instance=ExtResource("4_q3apq")]
+position = Vector2(-56, 72)
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=846329772]
+position = Vector2(-73, 73)
+script = ExtResource("5_2aq8n")
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner2" type="Node2D" parent="." unique_id=1148515704]
+position = Vector2(-40, 72)
+script = ExtResource("5_2aq8n")
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner3" type="Node2D" parent="." unique_id=344329072]
+position = Vector2(-138, 8)
+script = ExtResource("5_2aq8n")
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner4" type="Node2D" parent="." unique_id=1117264973]
+position = Vector2(-57, 42)
+script = ExtResource("5_2aq8n")
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner5" type="Node2D" parent="." unique_id=1648117625]
+position = Vector2(-137, -54)
+script = ExtResource("5_2aq8n")
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner6" type="Node2D" parent="." unique_id=847054988]
+position = Vector2(-57, -22)
+script = ExtResource("5_2aq8n")
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner7" type="Node2D" parent="." unique_id=688004922]
+position = Vector2(22, -22)
+script = ExtResource("5_2aq8n")
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner8" type="Node2D" parent="." unique_id=1386642849]
+position = Vector2(-121, -108)
+script = ExtResource("5_2aq8n")
+SpawnCycle = 4
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner9" type="Node2D" parent="." unique_id=974102828]
+position = Vector2(-106, -108)
+script = ExtResource("5_2aq8n")
+SpawnCycle = 5
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner10" type="Node2D" parent="." unique_id=1983708937]
+position = Vector2(-92, -108)
+script = ExtResource("5_2aq8n")
+SpawnCycle = 6
+SpawnDirection = Vector2i(0, 1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="Character" parent="." unique_id=121774950 instance=ExtResource("6_q3apq")]
+position = Vector2(-150, 99)
+
+[node name="ChurchDemon" parent="." unique_id=1348210618 instance=ExtResource("7_2aq8n")]
+position = Vector2(-56, -90)
+
+[node name="NightBarrier2" parent="." unique_id=1097365589 instance=ExtResource("4_q3apq")]
+position = Vector2(-151, -55)
+
+[node name="Clock3" parent="." unique_id=1364347328 instance=ExtResource("3_ijsq2")]
+position = Vector2(-6, 27)
+
+[node name="Clock4" parent="." unique_id=1525100365 instance=ExtResource("3_ijsq2")]
+position = Vector2(-23, 27)
+
+[node name="DayBarrier" parent="." unique_id=950842589 instance=ExtResource("8_2aq8n")]
+position = Vector2(-92, 24)
+
+[node name="NightBarrier3" parent="." unique_id=144290220 instance=ExtResource("4_q3apq")]
+position = Vector2(-119, 24)

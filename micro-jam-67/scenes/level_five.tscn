@@ -10,6 +10,7 @@
 
 [node name="Level" type="Node2D" unique_id=1280312679]
 script = ExtResource("1_tl35j")
+NextLevelPath = "/scenes/level_six.tscn"
 StartingTicks = 9
 DayDuration = 3
 metadata/_custom_type_script = "uid://dcilhgtmwjj1m"

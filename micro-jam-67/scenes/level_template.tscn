@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://cwr8g3tvyheod" path="res://gui/scripts/Ui.cs" id="2_amll8"]
 [ext_resource type="FontFile" uid="uid://otkv0xxa7fbn" path="res://gui/fonts/RolePlayer.ttf" id="3_770am"]
 [ext_resource type="Texture2D" uid="uid://dsajap2ui110c" path="res://environment/sprites/church_tiles.png" id="4_0ra3k"]
+[ext_resource type="PackedScene" uid="uid://kh4cj5qu3uay" path="res://gui/celestial_cycle_display/celestial_cycle_display.tscn" id="5_770am"]
 
 [sub_resource type="Gradient" id="Gradient_tbgi4"]
 offsets = PackedFloat32Array(0, 0.19896641, 0.2842377, 0.38501292, 0.6020672, 0.78294575, 0.90697676, 1)
@@ -207,6 +208,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.49019608)
+
+[node name="CelestialCycleDisplay" parent="UI" unique_id=1103701417 instance=ExtResource("5_770am")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1575796708]
 environment = SubResource("Environment_un07w")

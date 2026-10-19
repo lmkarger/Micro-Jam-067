@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://kh4cj5qu3uay"]
+
+[ext_resource type="Script" uid="uid://f3veigxy3iew" path="res://gui/celestial_cycle_display/CelestialCycleDisplay.cs" id="1_b4s3c"]
+[ext_resource type="Texture2D" uid="uid://br8rd3o123j20" path="res://gui/celestial_cycle_display/clock_gui.png" id="1_jppqx"]
+
+[sub_resource type="Gradient" id="Gradient_l4lxr"]
+interpolation_mode = 1
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b5oae"]
+gradient = SubResource("Gradient_l4lxr")
+width = 30
+height = 30
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="Gradient" id="Gradient_6sc7n"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.82945734)
+colors = PackedColorArray(0.13746335, 0.066700004, 0.23, 1, 0.52, 0.832, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xf5mo"]
+gradient = SubResource("Gradient_6sc7n")
+width = 30
+height = 30
+fill = 3
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.2948718)
+
+[sub_resource type="Gradient" id="Gradient_jppqx"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.2635659, 0.5271318, 0.75710595)
+colors = PackedColorArray(0, 0, 0, 1, 0.21, 0.21, 0.21, 1, 0.61, 0.61, 0.61, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b4s3c"]
+gradient = SubResource("Gradient_jppqx")
+width = 30
+height = 30
+fill = 3
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 0)
+
+[node name="CelestialCycleDisplay" type="Control" unique_id=1103701417 node_paths=PackedStringArray("_partitionTextureRect", "_celestialTextureRect")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b4s3c")
+_dayColor = Color(0.94, 0.89394, 0.54520005, 1)
+_nightColor = Color(0.29847148, 0.3016855, 0.6039824, 1)
+_partitionTextureRect = NodePath("Clock/TextureRect2/Partition")
+_celestialTextureRect = NodePath("Clock/TextureRect2/DayNightColors")
+
+[node name="Clock" type="TextureRect" parent="." unique_id=627714215]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 40.0
+grow_horizontal = 0
+texture = ExtResource("1_jppqx")
+
+[node name="TextureRect2" type="TextureRect" parent="Clock" unique_id=468241693]
+clip_children = 1
+z_index = -1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_b5oae")
+
+[node name="DayNightColors" type="TextureRect" parent="Clock/TextureRect2" unique_id=1527899777]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_xf5mo")
+
+[node name="Partition" type="TextureRect" parent="Clock/TextureRect2" unique_id=2029857436]
+self_modulate = Color(1, 1, 1, 0.14509805)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_b4s3c")
+
+[node name="ColorRect" type="ColorRect" parent="Clock" unique_id=1401498575]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1.0
+offset_top = 2.0
+offset_bottom = 8.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)

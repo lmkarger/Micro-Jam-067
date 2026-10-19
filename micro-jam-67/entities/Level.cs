@@ -32,6 +32,7 @@ public partial class Level : Node2D
 
         GameManager.Instance.NightDuration = NightDuration;
         GameManager.Instance.DayDuration = DayDuration;
+        GameManager.Instance.EmitSignal(GameManager.SignalName.GameBegan);
     }
 
     public override void _ExitTree()

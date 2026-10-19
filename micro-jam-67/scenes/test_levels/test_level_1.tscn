@@ -14,7 +14,7 @@
 script = ExtResource("1_v5cfc")
 NextLevelPath = "uid://cwte36iupjr3p"
 StartingTicks = 0
-NightDuration = 4
+NightDuration = 6
 metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
 
 [node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("1_ufh0b")]

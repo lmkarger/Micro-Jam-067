@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dq2k5l02ls0if"]
+
+[ext_resource type="AudioStream" uid="uid://bxoddtkt5tuaa" path="res://environment/music/tremendum_main_theme.ogg" id="1_mymc7"]
+
+[node name="MainMusic" type="AudioStreamPlayer" unique_id=100375356]
+stream = ExtResource("1_mymc7")
+volume_db = -9.0
+autoplay = true
+bus = &"Music"

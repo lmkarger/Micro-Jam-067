@@ -26,6 +26,12 @@ public partial class GameManager : Node
     [Signal]
     public delegate void NextLevelSelectedEventHandler();
 
+    [Signal]
+    public delegate void PortalTouchedEventHandler(Vector2I teleportPosition);
+
+    [Signal]
+    public delegate void GameBeganEventHandler();
+
     public static GameManager Instance { get; private set; }
 
     private int _gameTime;

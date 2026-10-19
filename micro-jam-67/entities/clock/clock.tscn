@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b4taj6tvbb0iu"]
+
+[ext_resource type="Script" uid="uid://cm6cdp2iysrud" path="res://entities/clock/Clock.cs" id="1_o5mhf"]
+[ext_resource type="Texture2D" uid="uid://dmufbs7082wjh" path="res://entities/clock/clock.png" id="2_dnqyc"]
+
+[sub_resource type="Gradient" id="Gradient_pjt0s"]
+offsets = PackedFloat32Array(0, 0.5180723, 0.7891566, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.8915663, 0, 0, 0, 0.5460844, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dnqyc"]
+gradient = SubResource("Gradient_pjt0s")
+width = 16
+height = 8
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Clock" type="Node2D" unique_id=583376235]
+script = ExtResource("1_o5mhf")
+metadata/_custom_type_script = "uid://cm6cdp2iysrud"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1142016154]
+z_index = 1
+position = Vector2(0, -4)
+texture = ExtResource("2_dnqyc")
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1076474009]
+self_modulate = Color(1, 1, 1, 0.54901963)
+z_index = -1
+position = Vector2(0, 4)
+texture = SubResource("GradientTexture2D_dnqyc")

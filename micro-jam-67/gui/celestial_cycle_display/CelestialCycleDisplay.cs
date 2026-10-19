@@ -51,7 +51,6 @@ public partial class CelestialCycleDisplay : Control
         float targetAngle = (float)Math.Tau * ((float)(GameManager.Instance.GameTime % cycleLength) + 0.5f) / cycleLength;
         float step = 1f - (float)Mathf.Exp(-delta * rotationSmoothing);
 
-        GD.Print(GameManager.Instance.GameTime);
 
         cycleAngle = Mathf.LerpAngle(cycleAngle, targetAngle, step);
 

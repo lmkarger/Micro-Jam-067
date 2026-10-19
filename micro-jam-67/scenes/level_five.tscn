@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://rftc3g5tte2x"]
+
+[ext_resource type="Script" uid="uid://dcilhgtmwjj1m" path="res://entities/Level.cs" id="1_tl35j"]
+[ext_resource type="PackedScene" uid="uid://cyfe37h1rtcm0" path="res://scenes/level_template.tscn" id="2_n5wxc"]
+[ext_resource type="PackedScene" uid="uid://cqkpjfi2sr243" path="res://entities/portal/portal.tscn" id="3_vohjo"]
+[ext_resource type="Script" uid="uid://cjm7fng5w4eq5" path="res://entities/bullet/bullet_spawner/scripts/BulletSpawner.cs" id="4_cqmwe"]
+[ext_resource type="PackedScene" uid="uid://b8k031sybwwjk" path="res://entities/player/character.tscn" id="5_vohjo"]
+[ext_resource type="PackedScene" uid="uid://ck6mirlab0t23" path="res://entities/demon/demon.tscn" id="6_cqmwe"]
+[ext_resource type="PackedScene" uid="uid://3842fpvxejg2" path="res://entities/barrier/night_barrier.tscn" id="7_cqmwe"]
+
+[node name="Level" type="Node2D" unique_id=1280312679]
+script = ExtResource("1_tl35j")
+NextLevelPath = "/scenes/level_six.tscn"
+StartingTicks = 9
+DayDuration = 3
+metadata/_custom_type_script = "uid://dcilhgtmwjj1m"
+
+[node name="LevelTemplate" parent="." unique_id=1668428084 instance=ExtResource("2_n5wxc")]
+
+[node name="Portal" parent="." unique_id=955426030 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(-124, 102)
+link = NodePath("../Portal2")
+
+[node name="Portal2" parent="." unique_id=198613749 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(40, 89)
+link = NodePath("../Portal")
+
+[node name="BulletSpawner" type="Node2D" parent="." unique_id=1044179464]
+position = Vector2(-154, 73)
+script = ExtResource("4_cqmwe")
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner2" type="Node2D" parent="." unique_id=1638268501]
+position = Vector2(-97, -105)
+script = ExtResource("4_cqmwe")
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner3" type="Node2D" parent="." unique_id=370046012]
+position = Vector2(-97, -91)
+script = ExtResource("4_cqmwe")
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner4" type="Node2D" parent="." unique_id=1029847192]
+position = Vector2(-97, -77)
+script = ExtResource("4_cqmwe")
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner5" type="Node2D" parent="." unique_id=949529062]
+position = Vector2(-98, -65)
+script = ExtResource("4_cqmwe")
+SpawnDirection = Vector2i(-1, 0)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner6" type="Node2D" parent="." unique_id=806576802]
+position = Vector2(-152, 10)
+script = ExtResource("4_cqmwe")
+SpawnCycle = 3
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner7" type="Node2D" parent="." unique_id=1464211802]
+position = Vector2(-153, -54)
+script = ExtResource("4_cqmwe")
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner8" type="Node2D" parent="." unique_id=355322009]
+position = Vector2(-24, -23)
+script = ExtResource("4_cqmwe")
+SpawnCycle = 3
+Phase = 2
+SpawnDirection = Vector2i(0, -1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner9" type="Node2D" parent="." unique_id=825163108]
+position = Vector2(-9, -23)
+script = ExtResource("4_cqmwe")
+SpawnCycle = 3
+SpawnDirection = Vector2i(0, -1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="BulletSpawner10" type="Node2D" parent="." unique_id=1580884919]
+position = Vector2(6, -24)
+script = ExtResource("4_cqmwe")
+SpawnCycle = 4
+SpawnDirection = Vector2i(0, -1)
+metadata/_custom_type_script = "uid://cjm7fng5w4eq5"
+
+[node name="Character" parent="." unique_id=121774950 instance=ExtResource("5_vohjo")]
+position = Vector2(-150, 99)
+
+[node name="ChurchDemon" parent="." unique_id=1348210618 instance=ExtResource("6_cqmwe")]
+position = Vector2(-70, -88)
+
+[node name="Portal3" parent="." unique_id=454663905 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(40, 25)
+link = NodePath("../Portal4")
+
+[node name="Portal4" parent="." unique_id=1438251387 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(-150, -106)
+link = NodePath("../Portal3")
+
+[node name="Portal5" parent="." unique_id=1804750610 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(-42, 24)
+link = NodePath("../Portal4")
+
+[node name="Portal6" parent="." unique_id=287720805 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(-60, 24)
+link = NodePath("../Portal4")
+
+[node name="Portal7" parent="." unique_id=1045456879 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(-76, 24)
+link = NodePath("../Portal11")
+
+[node name="Portal8" parent="." unique_id=1035098975 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(-136, 25)
+link = NodePath("../Portal4")
+
+[node name="Portal9" parent="." unique_id=1479375491 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(-152, 25)
+link = NodePath("../Portal4")
+
+[node name="Portal10" parent="." unique_id=965835092 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(22, 25)
+link = NodePath("../Portal4")
+
+[node name="Portal11" parent="." unique_id=1013864072 node_paths=PackedStringArray("link") instance=ExtResource("3_vohjo")]
+position = Vector2(37, -104)
+link = NodePath("../Portal7")
+
+[node name="NightBarrier" parent="." unique_id=1457315619 instance=ExtResource("7_cqmwe")]
+position = Vector2(-42, -104)
+
+[node name="NightBarrier2" parent="." unique_id=1217089367 instance=ExtResource("7_cqmwe")]
+position = Vector2(-42, -85)
+
+[node name="NightBarrier3" parent="." unique_id=758600275 instance=ExtResource("7_cqmwe")]
+position = Vector2(-42, -68)
+
+[node name="NightBarrier4" parent="." unique_id=761503544 instance=ExtResource("7_cqmwe")]
+position = Vector2(-10, -83)

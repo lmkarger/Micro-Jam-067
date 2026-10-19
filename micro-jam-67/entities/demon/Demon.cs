@@ -33,6 +33,9 @@ public partial class Demon : GridEntity
 
     private void playerMoved(Vector2I newPlayerPosition)
     {
+        if (!IsInstanceValid(this)){
+            return;
+        }
         bool isOnPlayer = newPlayerPosition == GridPosition;
         if (isOnPlayer)
         {

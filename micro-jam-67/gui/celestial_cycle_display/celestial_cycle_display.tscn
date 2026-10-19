@@ -17,8 +17,8 @@ fill_to = Vector2(1, 0.5)
 
 [sub_resource type="Gradient" id="Gradient_6sc7n"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.82945734)
-colors = PackedColorArray(0.13746335, 0.066700004, 0.23, 1, 0.52, 0.832, 1, 1)
+offsets = PackedFloat32Array(0, 0.19896641)
+colors = PackedColorArray(0.52, 0.832, 1, 1, 0.13746335, 0.066700004, 0.23, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xf5mo"]
 gradient = SubResource("Gradient_6sc7n")
@@ -26,7 +26,7 @@ width = 30
 height = 30
 fill = 3
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(1, 0.2948718)
+fill_to = Vector2(1, 0.491453)
 
 [sub_resource type="Gradient" id="Gradient_jppqx"]
 interpolation_mode = 1
@@ -48,6 +48,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_b4s3c")
 _dayColor = Color(0.94, 0.89394, 0.54520005, 1)
 _nightColor = Color(0.29847148, 0.3016855, 0.6039824, 1)
@@ -64,6 +65,7 @@ offset_top = 8.0
 offset_right = -8.0
 offset_bottom = 40.0
 grow_horizontal = 0
+mouse_filter = 2
 texture = ExtResource("1_jppqx")
 
 [node name="TextureRect2" type="TextureRect" parent="Clock" unique_id=468241693]
@@ -81,6 +83,7 @@ offset_right = 15.0
 offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_b5oae")
 
 [node name="DayNightColors" type="TextureRect" parent="Clock/TextureRect2" unique_id=1527899777]
@@ -90,6 +93,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_xf5mo")
 
 [node name="Partition" type="TextureRect" parent="Clock/TextureRect2" unique_id=2029857436]
@@ -100,6 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = SubResource("GradientTexture2D_b4s3c")
 
 [node name="ColorRect" type="ColorRect" parent="Clock" unique_id=1401498575]
@@ -112,4 +117,5 @@ offset_left = -1.0
 offset_top = 2.0
 offset_bottom = 8.0
 grow_horizontal = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
